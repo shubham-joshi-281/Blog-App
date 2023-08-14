@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import ConnectDB from "./connect/db.js";
+import connectDB from "./connect/connectDB.js";
 import userRouter from "./routes/userRoutes.js";
 import blogRouter from "./routes/blogRoutes.js";
 import path from "path";
@@ -34,7 +34,7 @@ app.use("/", function (req, res) {
 
 // app listen
 const start = () => {
-  ConnectDB();
+  connectDB();
   const PORT = process.env.PORT || "8080";
   app.listen(PORT, () => {
     console.log(`server running at ${PORT}`);
