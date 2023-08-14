@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "./client/build")));
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/blog", blogRouter);
 
-app.get("*", (req, res) => {
+app.use("/", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 // port at listen
