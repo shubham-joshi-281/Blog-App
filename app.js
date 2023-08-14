@@ -31,14 +31,13 @@ app.use("/", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 // port at listen
-const PORT = process.env.PORT;
 
 // app listen
 const start = () => {
-  ConnectDB();
+  connectDB();
+  const PORT = process.env.PORT || "8080";
   app.listen(PORT, () => {
-    console.log(`Server Running At Port ${PORT}`);
+    console.log(`server running at ${PORT}`);
   });
 };
-
 start();
